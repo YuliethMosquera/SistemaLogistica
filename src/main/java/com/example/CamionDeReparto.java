@@ -1,15 +1,20 @@
 package com.example;
 
 public class CamionDeReparto extends Transporte {
-    private String tipoCarga;
+    private boolean tieneRefrigeracion;
 
-    public CamionDeReparto(double capacidad, double velocidad, String combustible, String tipoCarga) {
-        super(capacidad, velocidad, combustible);
-        this.tipoCarga = tipoCarga;
+    public CamionDeReparto(String idTransporte, double combustible, double capacidadCarga, boolean tieneRefrigeracion) {
+        super(idTransporte, combustible, capacidadCarga);
+        this.tieneRefrigeracion = tieneRefrigeracion;
     }
 
-    public void mostrarInfo() {
-        super.mostrarInfo();
-        System.out.println("Tipo de carga: " + tipoCarga);
+    @Override
+    public void viajar(int distancia) {
+        double consumo = distancia * 0.5;
+        if (tieneRefrigeracion) {
+            consumo *= 2;
+        }
+        System.out.println("El camión " + getIdTransporte() + " viajó " + distancia + " km.");
+        System.out.println("Consumo de combustible: " + consumo);
     }
 }

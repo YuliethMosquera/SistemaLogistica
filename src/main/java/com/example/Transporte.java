@@ -1,19 +1,32 @@
 package com.example;
 
 public class Transporte {
-    protected double capacidad;
-    protected double velocidad;
-    protected String combustible;
+    private String idTransporte;
+    private double combustible;
+    private double capacidadCarga;
 
-    public Transporte(double capacidad, double velocidad, String combustible) {
-        this.capacidad = capacidad;
-        this.velocidad = velocidad;
+    public Transporte(String idTransporte, double combustible, double capacidadCarga) {
+        this.idTransporte = idTransporte;
         this.combustible = combustible;
+        this.capacidadCarga = capacidadCarga;
     }
 
-    public void mostrarInfo() {
-        System.out.println("Capacidad: " + capacidad);
-        System.out.println("Velocidad: " + velocidad);
-        System.out.println("Combustible: " + combustible);
+    public void viajar(int distancia) {
+        double consumo = distancia * 0.5;
+        combustible -= consumo;
+        System.out.println("El transporte " + idTransporte + " viajó " + distancia + " km.");
+        System.out.println("Combustible restante: " + combustible);
+    }
+
+    public String getIdTransporte() {
+        return idTransporte;
+    }
+
+    public double getCombustible() {
+        return combustible;
+    }
+
+    public double getCapacidadCarga() {
+        return capacidadCarga;
     }
 }

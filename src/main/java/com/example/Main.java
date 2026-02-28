@@ -3,13 +3,12 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
 
-        BuqueCarga buque = new BuqueCarga(50000, 30, "Diésel", 200);
-        CamionDeReparto camion = new CamionDeReparto(5000, 80, "Gasolina", "Alimentos");
+        BuqueCarga buque = new BuqueCarga("B001", 10000, 50000, 50);
+        CamionDeReparto camion = new CamionDeReparto("C001", 500, 5000, true);
 
-        System.out.println("=== Buque de Carga ===");
-        buque.mostrarInfo();
+        buque.mostrarDatos();
+        buque.atracarEnPuerto();
 
-        System.out.println("\n=== Camión de Reparto ===");
-        camion.mostrarInfo();
+        camion.viajar(100);
     }
 }
