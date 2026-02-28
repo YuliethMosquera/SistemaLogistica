@@ -14,7 +14,11 @@ public class CamionDeReparto extends Transporte {
         if (tieneRefrigeracion) {
             consumo *= 2;
         }
-        System.out.println("El camión " + getIdTransporte() + " viajó " + distancia + " km.");
-        System.out.println("Consumo de combustible: " + consumo);
+
+        setCombustible(getCombustible() - consumo);
+
+        System.out.println("Camión " + getIdTransporte() + " viajó " + distancia + " km.");
+        System.out.println("Refrigeración: " + tieneRefrigeracion);
+        System.out.println("Combustible restante: " + getCombustible());
     }
 }
